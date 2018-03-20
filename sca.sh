@@ -1,6 +1,7 @@
 #!/bin/bash
-# Script para backup da pasta Dados
-
+# Script para backup de Database Firebird #
+#Criado por: Thiago Lopes
+#GitHub - https://github.com/Th14go/script-bck-Firebird
 #VARIAVEIS
 DATA=`date +%Y-%m-%d-%H.%M`
 
