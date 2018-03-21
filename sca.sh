@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script para backup de Database Firebird #
-#Criado por: Thiago Lopes
+#Criado por: Th14go
 #GitHub - https://github.com/Th14go/script-bck-Firebird
 #VARIAVEIS
 DATA=`date +%Y-%m-%d-%H.%M`
@@ -17,8 +17,6 @@ echo "******************************" >> $SYNC_LOG
 echo "Fim do Backup do Banco" >> $SYNC_LOG
 date >> $SYNC_LOG
 echo "******************************" >> $SYNC_LOG
-
-
 
 #Compacta Backup do banco
 echo "******************************" >> $SYNC_LOG
@@ -39,16 +37,8 @@ rm -rvf /home/administrador/DATABASES/SCA/BKP-SCA/*.gbak
 #Sincroniza com a pasta do servidor com a pasta de backup remoto com o host NTI
 rsync -Cravp /home/administrador/DATABASES/SCA/BKP-SCA/ /mnt/backup/DATABASES/SCA/
 rsync -Cravp /var/log/sca /mnt/backup/LOG/
-#chown -R th14golop35 /home/administrador/DATABASES/SCA/BKP-SCA/*
-#chmod 777 /home/administrador/DATABASES/SCA/BKP-SCA/*
+
 
 #apaga arquivos com mais de 10 dias
 find /home/administrador/DATABASES/SCA/BKP-SCA -mtime +5 -exec rm -rf {} \;
-
-
-#Envia Email
-#echo "******************************" >> $SYNC_LOG
-#echo "Arquivo compactado" >> $SYNC_LOG
-#ls -lha /spdata/backup/bd/bkdados-$DATA* >> $SYNC_LOG
-#echo "******************************" >> $SYNC_LOG
 
