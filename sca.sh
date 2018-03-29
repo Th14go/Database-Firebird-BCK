@@ -40,5 +40,5 @@ rsync -Cravp /var/log/sca /mnt/backup/LOG/
 
 
 #apaga arquivos com mais de 10 dias
-find /home/administrador/DATABASES/SCA/BKP-SCA -mtime +5 -exec rm -rf {} \;
+find /home/administrador/DATABASES/SCA/BKP-SCA -mtime +10 -exec rm -rf {} \;
 
