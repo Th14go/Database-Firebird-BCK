@@ -39,6 +39,17 @@ rsync -Cravp /home/administrador/DATABASES/SCA/BKP-SCA/ /mnt/backup/DATABASES/SC
 rsync -Cravp /var/log/sca /mnt/backup/LOG/
 
 
-#apaga arquivos com mais de 10 dias
-find /home/administrador/DATABASES/SCA/BKP-SCA -mtime +10 -exec rm -rf {} \;
+#apaga arquivos com mais de 10 dias Local
+echo "**********INICIO REMOÇÃO LOCAL****************">>$SYNC_LOG
+date >> $SYNC_LOG
+find /home/administrador/DATABASES/SCA/BKP-SCA -mtime +10 -exec rm -rf {} \; >>$SYNC_LOG
+date >> $SYNC_LOG
+echo "**********INICIO REMOÇÃO LOCAL*****************">> $SYNC_LOG
 
+
+#ApagandoBckAntigosRemoto
+echo "***********INICIO REMOÇÃO REMOTA***************">>$SYNC_LOG
+date >> $SYNC_LOG
+find /mnt/backup/DATABASES/SCA -mtime +10 -exec rm -rf {} \; >>$SYNC_LOG
+date >> $SYNC_LOG
+echo "**********FIM REMOÇÃO REMOTA*******************">>$SYNC_LOG
